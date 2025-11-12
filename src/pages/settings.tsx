@@ -79,14 +79,17 @@ export default function SettingsPage() {
         <div className="space-y-6">
           <GeneralSettings appVersion={appVersion} />
           <WorkflowSettings />
-          <AISettings />
+          
+          {settings?.showAISettings && <AISettings />}
 
-          <div
-            id="provider-settings"
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-sm"
-          >
-            <ProviderSettingsGrid />
-          </div>
+          {settings?.showAIProviders && (
+            <div
+              id="provider-settings"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-sm"
+            >
+              <ProviderSettingsGrid />
+            </div>
+          )}
 
           <div className="space-y-6">
             <div

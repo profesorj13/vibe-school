@@ -1323,4 +1323,13 @@ export class IpcClient {
   public cancelHelpChat(sessionId: string): void {
     this.ipcRenderer.invoke("help:chat:cancel", sessionId).catch(() => {});
   }
+
+  // --- Wizard Validation ---
+  public async validateWizardInput(params: {
+    flowId: string;
+    stepId: string;
+    inputText: string;
+  }): Promise<{ isValid: boolean; reason?: string; suggestedFix?: string }> {
+    return this.ipcRenderer.invoke("wizard:validate", params);
+  }
 }

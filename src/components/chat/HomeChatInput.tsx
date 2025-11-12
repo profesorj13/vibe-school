@@ -83,7 +83,7 @@ export function HomeChatInput({
               onChange={setInputValue}
               onSubmit={handleCustomSubmit}
               onPaste={handlePaste}
-              placeholder="Ask Dyad to build..."
+              placeholder="Continúa construyendo con Alizia"
               disabled={isStreaming}
               excludeCurrentApp={false}
             />

@@ -50,7 +50,7 @@ export function RenameChatDialog({
         chatId,
         title: newTitle.trim(),
       });
-      showSuccess("Chat renamed successfully");
+      showSuccess("Chat renombrado exitosamente");
 
       // Call the parent's onRename callback to refresh the chat list
       onRename();
@@ -70,8 +70,8 @@ export function RenameChatDialog({
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Rename Chat</DialogTitle>
-          <DialogDescription>Enter a new name for this chat.</DialogDescription>
+          <DialogTitle>Renombrar Chat</DialogTitle>
+          <DialogDescription>Ingresa un nuevo nombre para este chat.</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">

@@ -109,7 +109,7 @@ export function ChatList({ show }: { show?: boolean }) {
   const handleDeleteChat = async (chatId: number) => {
     try {
       await IpcClient.getInstance().deleteChat(chatId);
-      showSuccess("Chat deleted successfully");
+      showSuccess("Chat eliminado exitosamente");
 
       // If the deleted chat was selected, navigate to home
       if (selectedChatId === chatId) {
@@ -159,7 +159,7 @@ export function ChatList({ show }: { show?: boolean }) {
         className="overflow-y-auto h-[calc(100vh-112px)]"
         data-testid="chat-list-container"
       >
-        <SidebarGroupLabel>Recent Chats</SidebarGroupLabel>
+        <SidebarGroupLabel>Chats recientes</SidebarGroupLabel>
         <SidebarGroupContent>
           <div className="flex flex-col space-y-4">
             <Button
@@ -168,7 +168,7 @@ export function ChatList({ show }: { show?: boolean }) {
               className="flex items-center justify-start gap-2 mx-2 py-3"
             >
               <PlusCircle size={16} />
-              <span>New Chat</span>
+              <span>Nuevo Chat</span>
             </Button>
             <Button
               onClick={() => setIsSearchDialogOpen(!isSearchDialogOpen)}
@@ -177,16 +177,16 @@ export function ChatList({ show }: { show?: boolean }) {
               data-testid="search-chats-button"
             >
               <Search size={16} />
-              <span>Search chats</span>
+              <span>Buscar chats</span>
             </Button>
 
             {loading ? (
               <div className="py-3 px-4 text-sm text-gray-500">
-                Loading chats...
+                Cargando chats...
               </div>
             ) : chats.length === 0 ? (
               <div className="py-3 px-4 text-sm text-gray-500">
-                No chats found
+                No se encontraron chats
               </div>
             ) : (
               <SidebarMenu className="space-y-1">
@@ -209,7 +209,7 @@ export function ChatList({ show }: { show?: boolean }) {
                       >
                         <div className="flex flex-col w-full">
                           <span className="truncate">
-                            {chat.title || "New Chat"}
+                            {chat.title || "Nuevo Chat"}
                           </span>
                           <span className="text-xs text-gray-500">
                             {formatDistanceToNow(new Date(chat.createdAt), {
@@ -245,19 +245,19 @@ export function ChatList({ show }: { show?: boolean }) {
                               className="px-3 py-2"
                             >
                               <Edit3 className="mr-2 h-4 w-4" />
-                              <span>Rename Chat</span>
+                              <span>Renombrar Chat</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem
                               onClick={() =>
                                 handleDeleteChatClick(
                                   chat.id,
-                                  chat.title || "New Chat",
+                                  chat.title || "Nuevo Chat",
                                 )
                               }
                               className="px-3 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/50 focus:bg-red-50 dark:focus:bg-red-950/50"
                             >
                               <Trash2 className="mr-2 h-4 w-4" />
-                              <span>Delete Chat</span>
+                              <span>Eliminar Chat</span>
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>

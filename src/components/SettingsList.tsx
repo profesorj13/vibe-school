@@ -1,15 +1,16 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useScrollAndNavigateTo } from "@/hooks/useScrollAndNavigateTo";
 import { useAtom } from "jotai";
 import { activeSettingsSectionAtom } from "@/atoms/viewAtoms";
+import { useSettings } from "@/hooks/useSettings";
 
-const SETTINGS_SECTIONS = [
+const ALL_SETTINGS_SECTIONS = [
   { id: "general-settings", label: "General" },
   { id: "workflow-settings", label: "Workflow" },
-  { id: "ai-settings", label: "AI" },
-  { id: "provider-settings", label: "Model Providers" },
+  { id: "ai-settings", label: "AI", requiresFlag: "showAISettings" },
+  { id: "provider-settings", label: "Model Providers", requiresFlag: "showAIProviders" },
   { id: "telemetry", label: "Telemetry" },
   { id: "integrations", label: "Integrations" },
   { id: "tools-mcp", label: "Tools (MCP)" },
@@ -19,10 +20,19 @@ const SETTINGS_SECTIONS = [
 
 export function SettingsList({ show }: { show: boolean }) {
   const [activeSection, setActiveSection] = useAtom(activeSettingsSectionAtom);
+  const { settings } = useSettings();
   const scrollAndNavigateTo = useScrollAndNavigateTo("/settings", {
     behavior: "smooth",
     block: "start",
   });
+
+  // Filter sections based on settings flags
+  const SETTINGS_SECTIONS = useMemo(() => {
+    return ALL_SETTINGS_SECTIONS.filter((section) => {
+      if (!section.requiresFlag) return true;
+      return settings?.[section.requiresFlag as keyof typeof settings] === true;
+    });
+  }, [settings]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,7 +68,7 @@ export function SettingsList({ show }: { show: boolean }) {
   return (
     <div className="flex flex-col h-full">
       <div className="flex-shrink-0 p-4">
-        <h2 className="text-lg font-semibold tracking-tight">Settings</h2>
+        <h2 className="text-lg font-semibold tracking-tight">Configuración</h2>
       </div>
       <ScrollArea className="flex-grow">
         <div className="space-y-1 p-4 pt-0">

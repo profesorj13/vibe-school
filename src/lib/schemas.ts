@@ -250,6 +250,11 @@ export const UserSettingsSchema = z.object({
   runtimeMode2: RuntimeMode2Schema.optional(),
   customNodePath: z.string().optional().nullable(),
 
+  // UI visibility flags
+  showAISettings: z.boolean().optional(),
+  showAIProviders: z.boolean().optional(),
+  showProBanner: z.boolean().optional(),
+
   ////////////////////////////////
   // E2E TESTING ONLY.
   ////////////////////////////////

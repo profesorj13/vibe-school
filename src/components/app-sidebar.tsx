@@ -42,12 +42,12 @@ const items = [
     icon: Inbox,
   },
   {
-    title: "Settings",
+    title: "Configuración",
     to: "/settings",
     icon: Settings,
   },
   {
-    title: "Library",
+    title: "Biblioteca",
     to: "/library",
     icon: BookOpen,
   },
@@ -104,16 +104,16 @@ export function AppSidebar() {
   } else if (hoverState === "start-hover:chat") {
     selectedItem = "Chat";
   } else if (hoverState === "start-hover:settings") {
-    selectedItem = "Settings";
+    selectedItem = "Configuración";
   } else if (hoverState === "start-hover:library") {
-    selectedItem = "Library";
+    selectedItem = "Biblioteca";
   } else if (state === "expanded") {
     if (isAppRoute) {
       selectedItem = "Apps";
     } else if (isChatRoute) {
       selectedItem = "Chat";
     } else if (isSettingsRoute) {
-      selectedItem = "Settings";
+      selectedItem = "Configuración";
     }
   }
 
@@ -141,7 +141,7 @@ export function AppSidebar() {
           <div className="w-[240px]">
             <AppList show={selectedItem === "Apps"} />
             <ChatList show={selectedItem === "Chat"} />
-            <SettingsList show={selectedItem === "Settings"} />
+            <SettingsList show={selectedItem === "Configuración"} />
           </div>
         </div>
       </SidebarContent>
@@ -208,9 +208,9 @@ function AppIcons({
                         onHoverChange("start-hover:app");
                       } else if (item.title === "Chat") {
                         onHoverChange("start-hover:chat");
-                      } else if (item.title === "Settings") {
+                      } else if (item.title === "Configuración") {
                         onHoverChange("start-hover:settings");
-                      } else if (item.title === "Library") {
+                      } else if (item.title === "Biblioteca") {
                         onHoverChange("start-hover:library");
                       }
                     }}

@@ -34,6 +34,9 @@ const DEFAULT_SETTINGS: UserSettings = {
   enableAutoUpdate: true,
   releaseChannel: "stable",
   selectedTemplateId: DEFAULT_TEMPLATE_ID,
+  showAISettings: false,
+  showAIProviders: false,
+  showProBanner: false,
 };
 
 const SETTINGS_FILE = "user-settings.json";
@@ -130,6 +133,8 @@ export function readSettings(): UserSettings {
           encryptionType,
         };
       }
+      // Decrypt Azure resource name is not needed (it's not encrypted)
+      // but apiKey is already decrypted above
     }
 
     // Validate and merge with defaults
@@ -195,6 +200,7 @@ export function writeSettings(settings: Partial<UserSettings>): void {
       if (provider === "vertex" && v?.serviceAccountKey) {
         v.serviceAccountKey = encrypt(v.serviceAccountKey.value);
       }
+      // Azure resourceName is not encrypted, only apiKey (handled above)
     }
     const validatedSettings = UserSettingsSchema.parse(newSettings);
     fs.writeFileSync(filePath, JSON.stringify(validatedSettings, null, 2));
