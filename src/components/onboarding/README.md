@@ -32,7 +32,9 @@ onboarding/
 - Notas adicionales
 
 ### 3. Ayudar en mi Comunidad
-- TODO: Por implementar
+- Quién usará la app
+- Descripción del problema a resolver
+- Notas adicionales
 
 ## Uso
 
