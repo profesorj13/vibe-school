@@ -67,6 +67,9 @@ describe("readSettings", () => {
             "provider": "auto",
           },
           "selectedTemplateId": "react",
+          "showAIProviders": false,
+          "showAISettings": false,
+          "showProBanner": false,
           "telemetryConsent": "unset",
           "telemetryUserId": "[scrubbed]",
         }
@@ -313,6 +316,9 @@ describe("readSettings", () => {
             "provider": "auto",
           },
           "selectedTemplateId": "react",
+          "showAIProviders": false,
+          "showAISettings": false,
+          "showProBanner": false,
           "telemetryConsent": "unset",
           "telemetryUserId": "[scrubbed]",
         }

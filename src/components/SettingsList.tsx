@@ -7,6 +7,7 @@ import { activeSettingsSectionAtom } from "@/atoms/viewAtoms";
 import { useSettings } from "@/hooks/useSettings";
 
 const ALL_SETTINGS_SECTIONS = [
+  { id: "profile", label: "Profile" },
   { id: "general-settings", label: "General" },
   { id: "workflow-settings", label: "Workflow" },
   { id: "ai-settings", label: "AI", requiresFlag: "showAISettings" },
