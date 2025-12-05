@@ -26,6 +26,7 @@ import { NeonIntegration } from "@/components/NeonIntegration";
 import { RuntimeModeSelector } from "@/components/RuntimeModeSelector";
 import { NodePathSelector } from "@/components/NodePathSelector";
 import { ToolsMcpSettings } from "@/components/settings/ToolsMcpSettings";
+import { ProfileSettings } from "@/components/settings/ProfileSettings";
 import { useSetAtom } from "jotai";
 import { activeSettingsSectionAtom } from "@/atoms/viewAtoms";
 
@@ -77,6 +78,17 @@ export default function SettingsPage() {
         </div>
 
         <div className="space-y-6">
+          {/* Profile Section */}
+          <div
+            id="profile"
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6"
+          >
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+              Profile
+            </h2>
+            <ProfileSettings />
+          </div>
+
           <GeneralSettings appVersion={appVersion} />
           <WorkflowSettings />
           
