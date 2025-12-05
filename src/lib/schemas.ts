@@ -212,6 +212,16 @@ export const ReleaseChannelSchema = z.enum(["stable", "beta"]);
 export type ReleaseChannel = z.infer<typeof ReleaseChannelSchema>;
 
 /**
+ * Zod schema for user profile
+ */
+export const UserProfileSchema = z.object({
+  displayName: z.string().optional(),
+  avatarUrl: z.string().optional(),
+  bio: z.string().optional(),
+});
+export type UserProfile = z.infer<typeof UserProfileSchema>;
+
+/**
  * Zod schema for user settings
  */
 export const UserSettingsSchema = z.object({
@@ -254,6 +264,9 @@ export const UserSettingsSchema = z.object({
   showAISettings: z.boolean().optional(),
   showAIProviders: z.boolean().optional(),
   showProBanner: z.boolean().optional(),
+
+  // User profile
+  profile: UserProfileSchema.optional(),
 
   ////////////////////////////////
   // E2E TESTING ONLY.
