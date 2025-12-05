@@ -271,7 +271,7 @@ export function AppCreationWizard({
         prompt += `. ${descripcion.value}`;
       }
 
-      const estilo = selectionsMap["juegos-estilo-visual"] || selectionsMap["juegos-alertas"];
+      const estilo = selectionsMap["juegos-estilo-visual"];
       if (estilo) {
         prompt += ` con un diseño ${estilo.label.toLowerCase()}`;
       }
@@ -302,7 +302,7 @@ export function AppCreationWizard({
         prompt += ` sobre ${temas.value}`;
       }
 
-      const estilo = selectionsMap["aprendizaje-alertas"];
+      const estilo = selectionsMap["aprendizaje-estilo-visual"];
       if (estilo) {
         prompt += ` con un diseño ${estilo.label.toLowerCase()}`;
       }

@@ -151,7 +151,6 @@ const aprendizajeFlow: WizardFlow = {
 };
 
 // ============= FLUJO: AYUDAR EN MI COMUNIDAD =============
-// TODO: Implementar este flujo cuando tengas los detalles
 const comunidadFlow: WizardFlow = {
   id: "ayudar-comunidad",
   name: "Ayudar en mi comunidad",
